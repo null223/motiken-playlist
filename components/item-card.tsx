@@ -3,13 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface PlaylistItemCardProps {
   id: number
-  youtube_id: string
   title: string
   url: string
   thumbnail: string
 }
 
-export function PlaylistItemCard({ id, title, url, thumbnail }: PlaylistItemCardProps) {
+export function PlaylistItemCard({ title, url, thumbnail }: PlaylistItemCardProps) {
   return (
     <Link href={url}>
       <Card className="hover:shadow-lg transition-shadow">

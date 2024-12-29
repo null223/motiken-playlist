@@ -1,5 +1,12 @@
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY!
 
+export interface ItemProps {
+  id: string
+  title: string
+  thumbnail: string
+  url: string
+}
+
 export async function getPlaylistData(playlistId: string) {
   const response = await fetch(
     `https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${YOUTUBE_API_KEY}`
@@ -19,7 +26,7 @@ export async function getPlaylistData(playlistId: string) {
   return null
 }
 
-export async function getPlaylistItemsData(playlistId: string) {
+export async function getPlaylistItemsData(playlistId: string): Promise<ItemProps[]> {
   const response = await fetch(
     `https://www.googleapis.com/youtube/v3/playlistItems?${new URLSearchParams({
       part: "snippet",
@@ -29,6 +36,7 @@ export async function getPlaylistItemsData(playlistId: string) {
   )
   const data = await response.json()
   if (data.items && data.items.length > 0) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.items.map((item: any) => {
       return {
         id: item.snippet.resourceId.videoId,
