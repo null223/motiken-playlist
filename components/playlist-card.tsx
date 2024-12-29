@@ -27,9 +27,9 @@ export function PlaylistCard({ playlist }: PlaylistCardProps) {
             alt={playlist.title}
             className="w-full h-48 object-cover rounded-md"
           />
-          <p className="text-sm text-gray-500 mt-4">
+          {/*<p className="text-sm text-gray-500 mt-4">
             作成日: {new Date(playlist.created_at).toLocaleDateString('ja-JP')}
-          </p>
+          </p>*/}
         </CardContent>
       </Card>
     </Link>

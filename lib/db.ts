@@ -5,7 +5,7 @@ export async function getPlaylists() {
   const { data, error } = await supabase
     .from('playlists')
     .select('*')
-    .order('created_at', { ascending: false })
+    .order('created_at', { ascending: true })
 
   if (error) {
     console.error("Error fetching playlists:", error)
