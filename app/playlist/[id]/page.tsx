@@ -27,7 +27,7 @@ export default async function PlaylistPage({ params }: PlaylistPageProps) {
         </CardHeader>
         <CardContent>
           {items.map((item) => {
-            return <PlaylistItemCard key={item.id} {...items} />
+            return <PlaylistItemCard key={item.id} {...item} />
           })}
         </CardContent>
       </Card>

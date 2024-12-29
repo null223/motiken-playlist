@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface PlaylistItemCardProps {
-  id: number
+  id: string
   title: string
   url: string
   thumbnail: string
