@@ -1,6 +1,8 @@
 import { getPlaylistByYouTubeId } from '@/lib/db'
+import { getPlaylistItemsData } from '@/lib/youtube'
 import { Header } from '@/components/header'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { PlaylistItemCard } from '@/components/item-card'
 import { notFound } from 'next/navigation'
 
 interface PlaylistPageProps {
@@ -11,10 +13,10 @@ interface PlaylistPageProps {
 
 export default async function PlaylistPage({ params }: PlaylistPageProps) {
   const playlist = await getPlaylistByYouTubeId(params.id)
-
   if (!playlist) {
     notFound()
   }
+  const items = await getPlaylistItemsData(params.id)
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -24,13 +26,9 @@ export default async function PlaylistPage({ params }: PlaylistPageProps) {
           <CardTitle>{playlist.title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="aspect-video">
-            <iframe
-              src={`https://www.youtube.com/embed/videoseries?list=${playlist.youtube_id}`}
-              className="w-full h-full"
-              allowFullScreen
-            />
-          </div>
+          {items.map((item: any) => {
+            return <PlaylistItemCard {...items} />
+          })}
         </CardContent>
       </Card>
     </main>
