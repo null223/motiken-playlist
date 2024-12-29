@@ -1,4 +1,4 @@
-import { getPlaylistById } from '@/lib/db'
+import { getPlaylistByYouTubeId } from '@/lib/db'
 import { Header } from '@/components/header'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { notFound } from 'next/navigation'
@@ -10,7 +10,7 @@ interface PlaylistPageProps {
 }
 
 export default async function PlaylistPage({ params }: PlaylistPageProps) {
-  const playlist = await getPlaylistById(parseInt(params.id))
+  const playlist = await getPlaylistByYouTubeId(params.id)
 
   if (!playlist) {
     notFound()

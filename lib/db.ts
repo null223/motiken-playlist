@@ -22,11 +22,11 @@ export async function getPlaylists() {
   return playlistsData
 }
 
-export async function getPlaylistById(id: number) {
+export async function getPlaylistByYouTubeId(youtubeId: string) {
   const { data, error } = await supabase
     .from('playlists')
     .select('*')
-    .eq('id', id)
+    .eq('youtube_id', youtubeId)
     .single()
 
   if (error) {
