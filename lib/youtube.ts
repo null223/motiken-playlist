@@ -42,7 +42,7 @@ export async function getPlaylistItemsData(playlistId: string): Promise<ItemProp
         id: item.snippet.resourceId.videoId,
         title: item.snippet.title,
         thumbnail: item.snippet.thumbnails.medium.url,
-        url: `https://www.youtube.com/playlist?${new URLSearchParams({
+        url: `https://www.youtube.com/watch?${new URLSearchParams({
           w: item.snippet.resourceId.videoId,
           list: playlistId,
           index: item.snippet.position
