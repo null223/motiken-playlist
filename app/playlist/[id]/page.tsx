@@ -26,7 +26,7 @@ export default async function PlaylistPage({ params }: PlaylistPageProps) {
         <CardContent>
           <div className="aspect-video">
             <iframe
-              src={playlist.url}
+              src={`https://www.youtube.com/embed/videoseries?list=${playlist.youtube_id}`}
               className="w-full h-full"
               allowFullScreen
             />

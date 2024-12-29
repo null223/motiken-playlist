@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface Playlist {
   id: number
+  youtube_id: string
   title: string
   url: string
   thumbnail: string
