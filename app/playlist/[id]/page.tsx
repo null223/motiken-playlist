@@ -23,7 +23,7 @@ export default async function PlaylistPage({ params }: PlaylistPageProps) {
       <Header />
       <Card className="mt-12">
         <CardHeader>
-          <CardTitle>{playlist.title}</CardTitle>
+          <CardTitle className="font-sm text-gray-300">{playlist.title}</CardTitle>
         </CardHeader>
         <CardContent>
           {items.map((item) => {

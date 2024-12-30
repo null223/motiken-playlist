@@ -5,8 +5,8 @@ export async function POST(request: Request) {
   const body = await request.json()
   const { youtubeId } = body
 
-  const playlist = await createPlaylist(youtubeId)
+  // const playlist = await createPlaylist(youtubeId)
 
-  return NextResponse.json(playlist)
+  return NextResponse.json({})
 }
 
