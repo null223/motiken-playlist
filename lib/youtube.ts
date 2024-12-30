@@ -31,6 +31,7 @@ export async function getPlaylistItemsData(playlistId: string): Promise<ItemProp
     `https://www.googleapis.com/youtube/v3/playlistItems?${new URLSearchParams({
       part: "snippet",
       playlistId,
+      maxResults: "15",
       key: YOUTUBE_API_KEY
     })}`
   )
