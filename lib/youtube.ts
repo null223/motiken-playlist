@@ -10,7 +10,7 @@ export interface ItemProps {
 export async function getPlaylistData(playlistId: string) {
   const response = await fetch(
     `https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${YOUTUBE_API_KEY}`
-  )
+  , { cache: 'force-cache' })
   const data = await response.json()
   
   if (data.items && data.items.length > 0) {
@@ -34,7 +34,7 @@ export async function getPlaylistItemsData(playlistId: string): Promise<ItemProp
       maxResults: "15",
       key: YOUTUBE_API_KEY
     })}`
-  )
+  , { cache: 'force-cache' })
   const data = await response.json()
   if (data.items && data.items.length > 0) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
